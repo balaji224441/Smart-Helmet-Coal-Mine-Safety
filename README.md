@@ -1,124 +1,107 @@
 # ⛑️ Smart Helmet for Coal Mine Worker Safety
 
-## IoT-Enabled Smart Helmet for Real-Time Industrial Safety Monitoring
+## IoT-Enabled Smart Helmet for Real-Time Coal Mine Safety Monitoring
 
-An IoT-enabled wearable safety system designed for **coal mine workers** using an ESP32, environmental sensors, motion sensing, GPS tracking, automatic illumination, emergency alerts, and a real-time web dashboard.
+Smart Helmet for Coal Mine Worker Safety is an IoT-enabled wearable safety system designed to monitor environmental conditions, detect hazardous situations, track worker location, provide automatic lighting, and generate real-time safety alerts.
 
-The system continuously monitors important environmental and physical parameters such as:
+The system uses an **ESP32 microcontroller** as the central processing unit and integrates multiple sensors including **DHT11, MQ135, LDR, MPU6050, and NEO-6M GPS**.
+
+The collected sensor data is processed by the ESP32 and transmitted wirelessly through Wi-Fi to a web-based monitoring dashboard.
+
+The system also provides local alerts through a **buzzer, status LED, LED illumination system, and emergency push button**.
+
+---
+
+## 📌 Project Overview
+
+Coal mining is one of the most hazardous industrial occupations. Workers may be exposed to harmful gases, abnormal temperature and humidity, poor lighting, falls, and emergency situations.
+
+Traditional safety helmets mainly provide physical protection but do not continuously monitor the worker's environmental conditions or provide real-time information to supervisors.
+
+This project proposes a **Smart Helmet for Coal Mine Workers** that combines wearable electronics, embedded systems, sensors, IoT communication, and real-time monitoring.
+
+The helmet continuously monitors:
 
 - Temperature
 - Humidity
-- Air quality / gas level
+- Air-quality/gas level
 - Light intensity
-- Worker motion and fall conditions
+- Motion
+- Fall conditions
 - GPS location
+- Emergency status
 
-The collected sensor data is processed by an **ESP32 microcontroller** and transmitted wirelessly for real-time monitoring through a web-based dashboard.
-
-When potentially unsafe conditions are detected, the system can generate local alerts using a **buzzer and LED indicators**, while the dashboard provides remote visibility of the worker's condition.
-
----
-
-# 📌 Project Overview
-
-Coal mining environments can expose workers to several hazards, including poor lighting, abnormal temperature and humidity, harmful gas concentrations, falls, and difficulty locating workers during emergency situations.
-
-Conventional safety helmets mainly provide physical protection but do not continuously monitor environmental or worker conditions.
-
-This project combines a safety helmet with embedded sensing and IoT technologies to create a wearable monitoring platform.
-
-The system integrates:
-
-- ESP32 microcontroller
-- DHT11 temperature and humidity sensor
-- MQ135 air-quality/gas sensor
-- LDR light sensor
-- MPU6050 accelerometer and gyroscope
-- NEO-6M GPS module
-- LED / LED strip
-- Buzzer
-- Emergency push button
-- Wi-Fi connectivity
-- Web-based monitoring dashboard
-
-The prototype demonstrates how multiple sensors can be combined into a single wearable safety system.
+The system can automatically generate alerts when predefined safety conditions are detected.
 
 ---
 
-# 🎯 Objectives
+## 🎯 Objectives
 
 The main objectives of the project are:
 
-1. Design a smart helmet capable of monitoring temperature and humidity.
-2. Monitor air quality using the MQ135 sensor.
-3. Detect changes in lighting conditions using an LDR.
-4. Automatically control an illumination LED/LED strip in dark conditions.
-5. Detect sudden acceleration events that may indicate a fall.
-6. Track the worker's location using GPS.
-7. Provide local alerts using a buzzer and LED indicators.
-8. Provide an emergency alert mechanism.
-9. Transmit sensor information wirelessly using ESP32 Wi-Fi.
-10. Display sensor information on a real-time web dashboard.
-11. Develop a compact and portable prototype for industrial safety monitoring.
+1. To design a smart helmet for coal mine workers.
+2. To monitor temperature in real time.
+3. To monitor humidity conditions.
+4. To detect abnormal air-quality/gas levels.
+5. To detect surrounding light conditions.
+6. To automatically activate illumination in dark environments.
+7. To detect sudden motion and possible falls.
+8. To track the worker's location using GPS.
+9. To provide local alerts using a buzzer and LED.
+10. To provide an emergency push-button mechanism.
+11. To transmit sensor information using ESP32 Wi-Fi.
+12. To display real-time sensor information on a web dashboard.
+13. To develop a portable and low-cost industrial safety prototype.
+14. To provide a foundation for future AI, GSM, LoRa, and cloud-based safety systems.
 
 ---
 
-# ⭐ Key Features
+# ✨ Features
 
-- ⛑️ Wearable smart helmet prototype
-- 📡 ESP32-based IoT system
+- ⛑️ Wearable smart helmet platform
 - 🌡️ Real-time temperature monitoring
-- 💧 Humidity monitoring
+- 💧 Real-time humidity monitoring
 - ⚠️ MQ135-based gas/air-quality monitoring
-- 💡 Automatic lighting based on ambient light
+- 💡 Automatic lighting using LDR
 - 📐 MPU6050-based motion and fall detection
 - 📍 GPS-based worker location tracking
-- 🚨 Emergency push-button alert
-- 🔊 Buzzer-based local warning
-- 💡 LED-based visual warning
-- 🌐 Real-time web dashboard
-- 📊 Live sensor data visualization
-- 🔋 Portable battery-powered prototype
-- 🧩 Modular sensor architecture
-- 🏭 Potential applications in hazardous industrial environments
+- 🚨 Emergency push-button
+- 🔊 Buzzer-based warning system
+- 💡 LED-based warning and illumination
+- 📡 ESP32 Wi-Fi communication
+- 🌐 Web-based real-time monitoring dashboard
+- 🔋 Portable battery-powered operation
+- 📊 Threshold-based safety decision system
 
 ---
 
-# 🧠 System Concept
+# 🧩 System Components
 
-The overall system can be represented as:
+The Smart Helmet consists of three major layers:
 
 ```text
-                  SMART HELMET SYSTEM
-                         │
-                         ▼
-                  ┌─────────────┐
-                  │    ESP32    │
-                  │ Controller  │
-                  └──────┬──────┘
-                         │
-       ┌─────────────────┼──────────────────┐
-       │                 │                  │
-       ▼                 ▼                  ▼
-   ENVIRONMENT        MOTION             LOCATION
-     SENSORS          SENSOR               GPS
-       │                 │                  │
-       ▼                 ▼                  ▼
-    DHT11            MPU6050             NEO-6M
-    MQ135
-     LDR
-       │                 │                  │
-       └─────────────────┼──────────────────┘
-                         │
-                         ▼
-                  DATA PROCESSING
-                         │
-              ┌──────────┴──────────┐
-              │                     │
-              ▼                     ▼
-       LOCAL SAFETY ALERT       Wi-Fi DATA
-              │                     │
-       ┌──────┴──────┐              ▼
-       │             │        WEB DASHBOARD
-       ▼             ▼
-     BUZZER        LED
+                 SMART HELMET SYSTEM
+                        │
+        ┌───────────────┼───────────────┐
+        │               │               │
+        ▼               ▼               ▼
+   ENVIRONMENT       SAFETY/MOTION     LOCATION
+     SENSORS            SENSORS          SYSTEM
+        │               │               │
+        ▼               ▼               ▼
+   DHT11 / MQ135      MPU6050          NEO-6M
+        LDR
+        │               │               │
+        └───────────────┼───────────────┘
+                        │
+                        ▼
+                     ESP32
+                        │
+              ┌─────────┴─────────┐
+              │                   │
+              ▼                   ▼
+        LOCAL ALERTS            Wi-Fi
+              │                   │
+        ┌─────┴─────┐             ▼
+        ▼           ▼        WEB DASHBOARD
+      BUZZER        LED
